@@ -5,7 +5,7 @@ morse = Morse()
 end_converting = False
 
 while not end_converting:
-    mode = input("Do you want to encode or decode? e/d) >> ").lower()
+    mode = input("Do you want to encode or decode? (e/d) >> ").lower()
 
     if mode == "e":
         text = input("Please write the text you want to encode >> ").lower()
