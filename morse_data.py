@@ -1,4 +1,4 @@
-morse_code_dict = {
+MORSE_CODE_DICT = {
     # Letters (lowercase)
     'a': '.-',     'b': '-...',   'c': '-.-.',   'd': '-..',
     'e': '.',      'f': '..-.',   'g': '--.',    'h': '....',
