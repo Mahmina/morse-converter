@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter import messagebox
 from converter import Morse
 
 DARK_GREEN = "#064232"
@@ -60,7 +61,8 @@ class MorseApp:
         elif choice == 2 and self.is_morse(input_value):
             result = self.morse.decode(input_value)
         else:
-            result = "Please choose the right converter."
+            messagebox.showwarning("Conversion Error", "Please choose the right converter.")
+            return
 
         self.text_box2.config(state="normal")
         self.text_box2.delete("1.0", END)
