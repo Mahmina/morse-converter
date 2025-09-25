@@ -17,7 +17,7 @@ class Morse:
                 encode_message.append(self.morse_dict[letter])
             return " ".join(encode_message)
         except KeyError as error_message:
-            print(f"The {error_message} is not supported. Please choose something else.")
+            return f"The {error_message} is not supported. Please choose something else."
 
     def decode(self, morse_code):
         """
