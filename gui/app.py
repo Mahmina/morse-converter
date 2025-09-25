@@ -22,7 +22,7 @@ class MorseApp:
         title_label.grid(column=1, row=0, pady=(0, 30))
 
         # Radiobuttons
-        self.radio_state = IntVar()
+        self.radio_state = IntVar(value=1)
         text_radio = Radiobutton(text="Convert Text to Morse Code",
                                  value=1, variable=self.radio_state,
                                  fg=DARK_GREEN,
@@ -55,9 +55,9 @@ class MorseApp:
         choice = self.radio_state.get()
         input_value = self.text_box1.get("1.0", END).strip()
 
-        if choice == 1:
+        if choice == 1 and not self.is_morse(input_value):
             result = self.morse.encode(input_value.lower())
-        elif choice == 2:
+        elif choice == 2 and self.is_morse(input_value):
             result = self.morse.decode(input_value)
         else:
             result = "Please choose the right converter."
@@ -70,3 +70,10 @@ class MorseApp:
     def clear_placeholder(self, event):
         if self.text_box1.get("1.0", END).strip() == "Enter what you wish to convert:":
             self.text_box1.delete("1.0", END)
+
+    def is_morse(self, input_value):
+        morse_chars = {".", "-", " ", "/"}
+        for char in input_value:
+            if char not in morse_chars:
+                return False
+        return True
